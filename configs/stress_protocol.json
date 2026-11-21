@@ -1,0 +1,15 @@
+{
+  "protocol_version": "synthetic-stress-v1",
+  "seeds": [42, 43, 44],
+  "rows_per_asset": 1000,
+  "assets": 3,
+  "calibration_alert_rate": 0.02,
+  "rolling_window": 31,
+  "scenarios": ["clean", "benign_drift", "gradual_drift", "sustained_shift", "stuck_sensor", "missing_random", "missing_block", "spikes_with_missing"],
+  "event_start_fraction": 0.82,
+  "event_end_fraction": 0.94,
+  "random_missing_probability": 0.10,
+  "selection_policy": "fixed before execution; no parameter search or best-seed selection",
+  "training_policy": "paired clean training and calibration shared across scenarios within seed",
+  "labels_policy": "benchmark-defined injections, not physical diagnosis; missing_random is a nuisance control"
+}

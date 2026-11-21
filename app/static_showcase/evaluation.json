@@ -1,0 +1,439 @@
+{
+  "schema_version": 2,
+  "scope": "held-out point observations; no failure-diagnosis or real-world validity claim",
+  "evaluation_mode": "labeled",
+  "protocol": {
+    "split": "shared-utc-60-20-20-v2",
+    "dataset_sha256": "8b0791f034a9d30421d3737a5f21d0687fb347a303ab8b7ad72c2b5f2082f6a6",
+    "model_sha256": "e2ca845eecf9a6ad40f1cc092036f52ded66932195aff2a2b36ac67861132efd",
+    "thresholds": {
+      "mad": 9.659314360438271,
+      "rolling_mad": 14.40173894980046,
+      "isolation_forest": 0.7372091204741839
+    },
+    "calibration_alert_rate": 0.02,
+    "threshold_labels_used": false,
+    "rolling_window": 31,
+    "test_labels_used_for_tuning": false,
+    "calibration_label_diagnostics": {
+      "rows": 600,
+      "injected_or_positive_rows": 25
+    }
+  },
+  "quality": {
+    "rows": 3000,
+    "sensors": [
+      "temperature",
+      "vibration"
+    ],
+    "missing": {
+      "temperature": 0,
+      "vibration": 0
+    },
+    "irregular_intervals": {
+      "asset-0": 0,
+      "asset-1": 0,
+      "asset-2": 0
+    },
+    "timezone": "UTC"
+  },
+  "by_asset": {
+    "asset-0": {
+      "mad": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 4,
+        "alert_rate": 0.02,
+        "score_quantiles": [
+          0.10825699683873453,
+          0.9689605699122406,
+          2.819498931663302,
+          12.537658291460112
+        ],
+        "precision": 1.0,
+        "recall": 0.4444444444444444,
+        "f1": 0.6153846153846154,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 9,
+        "negatives": 191,
+        "confusion_matrix": {
+          "tp": 4,
+          "fp": 0,
+          "tn": 191,
+          "fn": 5
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      },
+      "rolling_mad": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 7,
+        "alert_rate": 0.035,
+        "score_quantiles": [
+          0.11107171668547937,
+          1.3391006162428856,
+          3.8651942202828575,
+          22.943918689479883
+        ],
+        "precision": 1.0,
+        "recall": 0.7777777777777778,
+        "f1": 0.875,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 9,
+        "negatives": 191,
+        "confusion_matrix": {
+          "tp": 7,
+          "fp": 0,
+          "tn": 191,
+          "fn": 2
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      },
+      "isolation_forest": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 6,
+        "alert_rate": 0.03,
+        "score_quantiles": [
+          0.38650652890147225,
+          0.41783262205954075,
+          0.6010150727468272,
+          0.767295302180138
+        ],
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 9,
+        "negatives": 191,
+        "confusion_matrix": {
+          "tp": 6,
+          "fp": 0,
+          "tn": 191,
+          "fn": 3
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      }
+    },
+    "asset-1": {
+      "mad": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 4,
+        "alert_rate": 0.02,
+        "score_quantiles": [
+          0.09145959723487926,
+          0.9902638547124278,
+          5.946183891703637,
+          13.00848253007597
+        ],
+        "precision": 1.0,
+        "recall": 0.36363636363636365,
+        "f1": 0.5333333333333333,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 11,
+        "negatives": 189,
+        "confusion_matrix": {
+          "tp": 4,
+          "fp": 0,
+          "tn": 189,
+          "fn": 7
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      },
+      "rolling_mad": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 6,
+        "alert_rate": 0.03,
+        "score_quantiles": [
+          0.1417331713697987,
+          1.2459325099644274,
+          7.989442857175494,
+          25.37061718334181
+        ],
+        "precision": 1.0,
+        "recall": 0.5454545454545454,
+        "f1": 0.7058823529411765,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 11,
+        "negatives": 189,
+        "confusion_matrix": {
+          "tp": 6,
+          "fp": 0,
+          "tn": 189,
+          "fn": 5
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      },
+      "isolation_forest": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 5,
+        "alert_rate": 0.025,
+        "score_quantiles": [
+          0.3870474997565621,
+          0.41758560543614376,
+          0.6992665840745266,
+          0.7750363277040343
+        ],
+        "precision": 1.0,
+        "recall": 0.45454545454545453,
+        "f1": 0.625,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 11,
+        "negatives": 189,
+        "confusion_matrix": {
+          "tp": 5,
+          "fp": 0,
+          "tn": 189,
+          "fn": 6
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      }
+    },
+    "asset-2": {
+      "mad": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 2,
+        "alert_rate": 0.01,
+        "score_quantiles": [
+          0.06389307913689604,
+          0.9698666865188483,
+          2.342560247163679,
+          11.63135092802524
+        ],
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 6,
+        "negatives": 194,
+        "confusion_matrix": {
+          "tp": 2,
+          "fp": 0,
+          "tn": 194,
+          "fn": 4
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      },
+      "rolling_mad": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 4,
+        "alert_rate": 0.02,
+        "score_quantiles": [
+          0.11767435997187725,
+          1.231101279732699,
+          2.954095830288832,
+          20.374275589013596
+        ],
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 6,
+        "negatives": 194,
+        "confusion_matrix": {
+          "tp": 4,
+          "fp": 0,
+          "tn": 194,
+          "fn": 2
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      },
+      "isolation_forest": {
+        "labeled": true,
+        "threshold_sources": [
+          "unlabeled calibration quantile; fixed before this batch"
+        ],
+        "observations": 200,
+        "alerts": 2,
+        "alert_rate": 0.01,
+        "score_quantiles": [
+          0.38721919727388787,
+          0.42051113033800147,
+          0.539121864938282,
+          0.7659985454464524
+        ],
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "pr_auc_average_precision": 1.0,
+        "pr_auc_trapezoid": 1.0,
+        "false_alarms_per_1000_observations": 0.0,
+        "positives": 6,
+        "negatives": 194,
+        "confusion_matrix": {
+          "tp": 2,
+          "fp": 0,
+          "tn": 194,
+          "fn": 4
+        },
+        "pr_auc_status": "defined",
+        "undefined_metrics": [],
+        "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+      }
+    }
+  },
+  "metrics": {
+    "mad": {
+      "labeled": true,
+      "threshold_sources": [
+        "unlabeled calibration quantile; fixed before this batch"
+      ],
+      "observations": 600,
+      "alerts": 10,
+      "alert_rate": 0.016666666666666666,
+      "score_quantiles": [
+        0.06389307913689604,
+        0.9736240324292879,
+        2.6492633898764337,
+        13.00848253007597
+      ],
+      "precision": 1.0,
+      "recall": 0.38461538461538464,
+      "f1": 0.5555555555555556,
+      "pr_auc_average_precision": 1.0,
+      "pr_auc_trapezoid": 1.0,
+      "false_alarms_per_1000_observations": 0.0,
+      "positives": 26,
+      "negatives": 574,
+      "confusion_matrix": {
+        "tp": 10,
+        "fp": 0,
+        "tn": 574,
+        "fn": 16
+      },
+      "pr_auc_status": "defined",
+      "undefined_metrics": [],
+      "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+    },
+    "rolling_mad": {
+      "labeled": true,
+      "threshold_sources": [
+        "unlabeled calibration quantile; fixed before this batch"
+      ],
+      "observations": 600,
+      "alerts": 17,
+      "alert_rate": 0.028333333333333332,
+      "score_quantiles": [
+        0.11107171668547937,
+        1.2625482865557582,
+        3.7750500108164617,
+        25.37061718334181
+      ],
+      "precision": 1.0,
+      "recall": 0.6538461538461539,
+      "f1": 0.7906976744186046,
+      "pr_auc_average_precision": 1.0,
+      "pr_auc_trapezoid": 1.0,
+      "false_alarms_per_1000_observations": 0.0,
+      "positives": 26,
+      "negatives": 574,
+      "confusion_matrix": {
+        "tp": 17,
+        "fp": 0,
+        "tn": 574,
+        "fn": 9
+      },
+      "pr_auc_status": "defined",
+      "undefined_metrics": [],
+      "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+    },
+    "isolation_forest": {
+      "labeled": true,
+      "threshold_sources": [
+        "unlabeled calibration quantile; fixed before this batch"
+      ],
+      "observations": 600,
+      "alerts": 13,
+      "alert_rate": 0.021666666666666667,
+      "score_quantiles": [
+        0.38650652890147225,
+        0.41881801589485645,
+        0.5844256225984095,
+        0.7750363277040343
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "pr_auc_average_precision": 0.9999999999999998,
+      "pr_auc_trapezoid": 0.9999999999999998,
+      "false_alarms_per_1000_observations": 0.0,
+      "positives": 26,
+      "negatives": 574,
+      "confusion_matrix": {
+        "tp": 13,
+        "fp": 0,
+        "tn": 574,
+        "fn": 13
+      },
+      "pr_auc_status": "defined",
+      "undefined_metrics": [],
+      "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+    }
+  },
+  "benchmark": {
+    "inference_seconds": 0.0377034000121057,
+    "observations": 600,
+    "rows_per_second": 15913.684171914301
+  }
+}

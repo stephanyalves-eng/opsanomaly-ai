@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="4.881" timestamp="2026-11-21T16:07:48.807405-03:00"><testcase classname="tests.test_pipeline" name="test_app_build_and_callback" time="4.832" /></testsuite></testsuites>

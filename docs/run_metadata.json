@@ -1,0 +1,122 @@
+{
+  "schema_version": 2,
+  "split_protocol": "shared-utc-60-20-20-v2",
+  "model_sha256": "e2ca845eecf9a6ad40f1cc092036f52ded66932195aff2a2b36ac67861132efd",
+  "rolling_window": 31,
+  "threshold_method": "higher calibration quantile; strict greater-than",
+  "threshold_labels_used": false,
+  "calibration_label_diagnostics": {
+    "rows": 600,
+    "injected_or_positive_rows": 25
+  },
+  "seed": 42,
+  "quality": {
+    "rows": 3000,
+    "sensors": [
+      "temperature",
+      "vibration"
+    ],
+    "missing": {
+      "temperature": 0,
+      "vibration": 0
+    },
+    "irregular_intervals": {
+      "asset-0": 0,
+      "asset-1": 0,
+      "asset-2": 0
+    },
+    "timezone": "UTC"
+  },
+  "splits": {
+    "train": {
+      "rows": 1800,
+      "membership_sha256": "3ed8af47f6c0a4077df5f25592f63a7c7c7a87075a7bca95bcea629ebe6392b9",
+      "start": "2025-01-01 00:00:00+00:00",
+      "end": "2025-01-01 09:59:00+00:00",
+      "assets": [
+        {
+          "asset_id": "asset-0",
+          "start": "2025-01-01 00:00:00+00:00",
+          "end": "2025-01-01 09:59:00+00:00",
+          "rows": 600
+        },
+        {
+          "asset_id": "asset-1",
+          "start": "2025-01-01 00:00:00+00:00",
+          "end": "2025-01-01 09:59:00+00:00",
+          "rows": 600
+        },
+        {
+          "asset_id": "asset-2",
+          "start": "2025-01-01 00:00:00+00:00",
+          "end": "2025-01-01 09:59:00+00:00",
+          "rows": 600
+        }
+      ]
+    },
+    "calibration": {
+      "rows": 600,
+      "membership_sha256": "484903bc9b80bb6c79ac20186d6ec67a2bcf2d4c836c4647298bb79ca41262a3",
+      "start": "2025-01-01 10:00:00+00:00",
+      "end": "2025-01-01 13:19:00+00:00",
+      "assets": [
+        {
+          "asset_id": "asset-0",
+          "start": "2025-01-01 10:00:00+00:00",
+          "end": "2025-01-01 13:19:00+00:00",
+          "rows": 200
+        },
+        {
+          "asset_id": "asset-1",
+          "start": "2025-01-01 10:00:00+00:00",
+          "end": "2025-01-01 13:19:00+00:00",
+          "rows": 200
+        },
+        {
+          "asset_id": "asset-2",
+          "start": "2025-01-01 10:00:00+00:00",
+          "end": "2025-01-01 13:19:00+00:00",
+          "rows": 200
+        }
+      ]
+    },
+    "test": {
+      "rows": 600,
+      "membership_sha256": "a0d8854288dbb9d0f841e68c19d899e49aa7c690752f46d94f34b954eafcb7d2",
+      "start": "2025-01-01 13:20:00+00:00",
+      "end": "2025-01-01 16:39:00+00:00",
+      "assets": [
+        {
+          "asset_id": "asset-0",
+          "start": "2025-01-01 13:20:00+00:00",
+          "end": "2025-01-01 16:39:00+00:00",
+          "rows": 200
+        },
+        {
+          "asset_id": "asset-1",
+          "start": "2025-01-01 13:20:00+00:00",
+          "end": "2025-01-01 16:39:00+00:00",
+          "rows": 200
+        },
+        {
+          "asset_id": "asset-2",
+          "start": "2025-01-01 13:20:00+00:00",
+          "end": "2025-01-01 16:39:00+00:00",
+          "rows": 200
+        }
+      ]
+    }
+  },
+  "dataset_sha256": "8b0791f034a9d30421d3737a5f21d0687fb347a303ab8b7ad72c2b5f2082f6a6",
+  "thresholds": {
+    "mad": 9.659314360438271,
+    "rolling_mad": 14.40173894980046,
+    "isolation_forest": 0.7372091204741839
+  },
+  "calibration_alert_rate": 0.02,
+  "versions": {
+    "numpy": "2.2.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1"
+  }
+}

@@ -1,0 +1,813 @@
+{
+  "schema_version": 1,
+  "scope": "real-data NAB convenience subset, local point-window evaluation; NOT official NAB scoring",
+  "protocol": {
+    "protocol_version": "nab-local-v1",
+    "repository": "https://github.com/numenta/NAB",
+    "revision": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+    "series": [
+      "realKnownCause/machine_temperature_system_failure.csv",
+      "realKnownCause/ambient_temperature_system_failure.csv",
+      "realKnownCause/cpu_utilization_asg_misconfiguration.csv"
+    ],
+    "labels_path": "labels/combined_windows.json",
+    "license_path": "LICENSE.txt",
+    "metadata_paths": [
+      "data/README.md",
+      ".zenodo.json"
+    ],
+    "split": "shared-utc-60-20-20-v2 applied independently per series; no pooling",
+    "seed": 42,
+    "calibration_alert_rate": 0.02,
+    "rolling_window": 31,
+    "label_mapping": "inclusive supplied anomaly-window membership; no point adjustment; NOT official NAB scoring",
+    "timezone_policy": "source naive clock localized to UTC as ordering coordinate only; source timezone unverified",
+    "selection_policy": "three realKnownCause operational/temperature files fixed before loading CSV values; no result-based exclusion or tuning",
+    "license_basis": "publisher repository LICENSE.txt MIT, corroborated by .zenodo.json; preserve original notice; no separate data-specific warranty",
+    "redistribution": "downloaded raw data/labels ignored by Git; local evaluation only; no publication"
+  },
+  "protocol_sha256": "9adb9fae20c5ff2db319cfccb51c14b52ea692ec81f3a611a9f5d6941928ef19",
+  "source_lock": {
+    "schema_version": 1,
+    "revision": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+    "repository": "https://github.com/numenta/NAB",
+    "license_basis": "publisher-declared MIT; LICENSE.txt and .zenodo.json",
+    "files": {
+      "LICENSE.txt": {
+        "sha256": "0a0b4d0b10cb1f7ed9ab2993ef93defc03447e6eba9daca1315dd32dae4877e3",
+        "bytes": 1056,
+        "url": "https://raw.githubusercontent.com/numenta/NAB/ea702d75cc2258d9d7dd35ca8e5e2539d71f3140/LICENSE.txt"
+      },
+      "data/README.md": {
+        "sha256": "1d32963e44a52323b44affff374a1222ebe5ef19ef8f7f6c6fd7a747aa52db30",
+        "bytes": 2931,
+        "url": "https://raw.githubusercontent.com/numenta/NAB/ea702d75cc2258d9d7dd35ca8e5e2539d71f3140/data/README.md"
+      },
+      ".zenodo.json": {
+        "sha256": "22d110137c6e06833ead7996ca7c819067428dcec828cbfcfb02b063566d4ccf",
+        "bytes": 1749,
+        "url": "https://raw.githubusercontent.com/numenta/NAB/ea702d75cc2258d9d7dd35ca8e5e2539d71f3140/.zenodo.json"
+      },
+      "labels/combined_windows.json": {
+        "sha256": "1e1fbc4601321aad8d0f8b3784c8134299379f68f6c1f7777565f8ffd57ab6b1",
+        "bytes": 15359,
+        "url": "https://raw.githubusercontent.com/numenta/NAB/ea702d75cc2258d9d7dd35ca8e5e2539d71f3140/labels/combined_windows.json"
+      },
+      "data/realKnownCause/machine_temperature_system_failure.csv": {
+        "sha256": "92bf5b87fc7f9bba8ca0b7ec63ccaac8cb4a1371a258e8c29a10ae9c018d82a4",
+        "bytes": 732223,
+        "url": "https://raw.githubusercontent.com/numenta/NAB/ea702d75cc2258d9d7dd35ca8e5e2539d71f3140/data/realKnownCause/machine_temperature_system_failure.csv"
+      },
+      "data/realKnownCause/ambient_temperature_system_failure.csv": {
+        "sha256": "230b68ccca20f59d562afd5d24ad52939c9b784386bed0054018358bf9120581",
+        "bytes": 233321,
+        "url": "https://raw.githubusercontent.com/numenta/NAB/ea702d75cc2258d9d7dd35ca8e5e2539d71f3140/data/realKnownCause/ambient_temperature_system_failure.csv"
+      },
+      "data/realKnownCause/cpu_utilization_asg_misconfiguration.csv": {
+        "sha256": "58ba65dc0737cfbac11b51514476d50c438d44011232144bb8d93f392df58f9f",
+        "bytes": 539274,
+        "url": "https://raw.githubusercontent.com/numenta/NAB/ea702d75cc2258d9d7dd35ca8e5e2539d71f3140/data/realKnownCause/cpu_utilization_asg_misconfiguration.csv"
+      }
+    }
+  },
+  "source_sha256": {
+    "evaluate_nab.py": "96892e400e1ec0b33b8d727c2ffa572b7ae1ef2aab1af1e961d7a0e28c50ba68",
+    "__init__.py": "7f59edb8097508cc6ab117d8c0154d9f65794c95323158114fd88ec62d4d655c",
+    "baseline.py": "9e0a73ab5af33d0eb895adf459ccdef902aed96131620fd0d41b1f496383d437",
+    "explain.py": "bf09ecf4700486c03ed2e573514be077244d06fec7add75f62f39f0ff5b9b3ac",
+    "features.py": "380e9bab0ab6d86769ebdbe1855f59961ce87d592e1c92eacfa346aed5ed7195",
+    "inference.py": "57bedf854a67c783d91ac7709bebb40fd3ef232328b126c15d6492212128efc3",
+    "ingest.py": "0ff346687cdf4bafe11d8823ba8ad1109037911713d23bc3cecd3db1e78d3a05",
+    "model.py": "c88d7cc0f4fcfb1be9dc74f565917a555dc8d1d50bb7b60ec5f4aa58cc33877b",
+    "nab.py": "772f3962939d7082de452671dc08a8487a125b4f7f811acee3746b2656bc1488",
+    "protocol.py": "caf622ff58b2df653a209fcc742ca5f799b5695bd06c421b82b404ac29b8bdc4",
+    "quality.py": "40090aef724fb633ff8968e0c67c94c83727e8b14bb3bb3b0f3714cb2ca77b55",
+    "quality_scenarios.py": "ced52e519045f62e52844da1bee6739884f8cfdac62e2dded76d8f572cb28d0e",
+    "stress.py": "3a9469cc6baf5740bb3d25860ca32494c1cbb05d564c925c74a209cdccc3e1d2",
+    "synthetic.py": "b3ff7b3685e1473a860e073b310c474c04a8284c210588290080a68d52a742f6"
+  },
+  "versions": {
+    "numpy": "2.2.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "opsanomaly-ai": "0.2.0"
+  },
+  "runs": [
+    {
+      "series": "realKnownCause/machine_temperature_system_failure.csv",
+      "status": "source_validation_rejected",
+      "reason": "Duplicate asset/timestamp",
+      "diagnostics": {
+        "rows": 22695,
+        "duplicate_timestamp_rows_beyond_first": 12,
+        "exact_duplicate_rows_beyond_first": 0,
+        "conflicting_timestamp_groups": 12,
+        "duplicate_timestamp_examples": [
+          "2014-01-07 02:00:00",
+          "2014-01-07 02:05:00",
+          "2014-01-07 02:10:00",
+          "2014-01-07 02:15:00",
+          "2014-01-07 02:20:00",
+          "2014-01-07 02:25:00",
+          "2014-01-07 02:30:00",
+          "2014-01-07 02:35:00",
+          "2014-01-07 02:40:00",
+          "2014-01-07 02:45:00",
+          "2014-01-07 02:50:00",
+          "2014-01-07 02:55:00"
+        ]
+      },
+      "metrics": null,
+      "policy": "No silent correction, metric-based exclusion or replacement"
+    },
+    {
+      "series": "realKnownCause/ambient_temperature_system_failure.csv",
+      "status": "evaluated",
+      "provenance": {
+        "validation": {
+          "rows": 7267,
+          "sensors": [
+            "sensor_value"
+          ],
+          "missing": {
+            "sensor_value": 0
+          },
+          "irregular_intervals": {
+            "ambient_temperature_system_failure": 10
+          },
+          "timezone": "UTC"
+        },
+        "source_rows": 7267,
+        "source_windows": [
+          [
+            "2013-12-15 07:00:00.000000",
+            "2013-12-30 09:00:00.000000"
+          ],
+          [
+            "2014-03-29 15:00:00.000000",
+            "2014-04-20 22:00:00.000000"
+          ]
+        ],
+        "source_timezone": "unspecified naive clock",
+        "timezone_assumption": "UTC ordering coordinate only; publisher physical timezone not verified",
+        "label_semantics": "inclusive published anomaly-window membership, not pointwise fault truth"
+      },
+      "splits": {
+        "train": {
+          "rows": 4360,
+          "membership_sha256": "1a14601e0763d0aeec389c51a1fe09ab92eb5dc830cf0346e143f457880a0626",
+          "start": "2013-07-04 00:00:00+00:00",
+          "end": "2014-01-18 10:00:00+00:00",
+          "assets": [
+            {
+              "asset_id": "ambient_temperature_system_failure",
+              "start": "2013-07-04 00:00:00+00:00",
+              "end": "2014-01-18 10:00:00+00:00",
+              "rows": 4360
+            }
+          ]
+        },
+        "calibration": {
+          "rows": 1453,
+          "membership_sha256": "d7c1993a8629ac526ade397c86d1fc8f0c202ace9adb171c6edaf3b83ad0d00b",
+          "start": "2014-01-18 11:00:00+00:00",
+          "end": "2014-03-21 06:00:00+00:00",
+          "assets": [
+            {
+              "asset_id": "ambient_temperature_system_failure",
+              "start": "2014-01-18 11:00:00+00:00",
+              "end": "2014-03-21 06:00:00+00:00",
+              "rows": 1453
+            }
+          ]
+        },
+        "test": {
+          "rows": 1454,
+          "membership_sha256": "8dc7c606863e849d18b1bc4b303abc44398f11055b16fa6534937b267107079d",
+          "start": "2014-03-21 07:00:00+00:00",
+          "end": "2014-05-28 15:00:00+00:00",
+          "assets": [
+            {
+              "asset_id": "ambient_temperature_system_failure",
+              "start": "2014-03-21 07:00:00+00:00",
+              "end": "2014-05-28 15:00:00+00:00",
+              "rows": 1454
+            }
+          ]
+        }
+      },
+      "window_membership_counts": {
+        "train": {
+          "rows": 4360,
+          "positive_rows": 363
+        },
+        "calibration": {
+          "rows": 1453,
+          "positive_rows": 0
+        },
+        "test": {
+          "rows": 1454,
+          "positive_rows": 363
+        }
+      },
+      "thresholds": {
+        "mad": 3.2433985404016425,
+        "rolling_mad": 3.654916587891298,
+        "isolation_forest": 0.7215803965316927
+      },
+      "test_windows": [
+        {
+          "published_start": "2014-03-29 15:00:00+00:00",
+          "published_end": "2014-04-20 22:00:00+00:00",
+          "clipped_at_test_boundary": false
+        }
+      ],
+      "metrics": {
+        "mad": {
+          "labeled": true,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 1454,
+          "alerts": 251,
+          "alert_rate": 0.17262723521320494,
+          "score_quantiles": [
+            0.006751567344049777,
+            2.18564775651305,
+            3.9586710983429896,
+            5.014361656529924
+          ],
+          "precision": 0.29880478087649404,
+          "recall": 0.2066115702479339,
+          "f1": 0.24429967426710097,
+          "pr_auc_average_precision": 0.3284837361965842,
+          "pr_auc_trapezoid": 0.32684397351692157,
+          "false_alarms_per_1000_observations": 121.04539202200826,
+          "positives": 363,
+          "negatives": 1091,
+          "confusion_matrix": {
+            "tp": 75,
+            "fp": 176,
+            "tn": 915,
+            "fn": 288
+          },
+          "pr_auc_status": "defined",
+          "undefined_metrics": [],
+          "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+        },
+        "rolling_mad": {
+          "labeled": true,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 1454,
+          "alerts": 79,
+          "alert_rate": 0.054332874828060526,
+          "score_quantiles": [
+            7.305858963516974e-05,
+            0.8099777884213133,
+            3.851051269646602,
+            13.47945048430188
+          ],
+          "precision": 0.26582278481012656,
+          "recall": 0.05785123966942149,
+          "f1": 0.09502262443438914,
+          "pr_auc_average_precision": 0.25554774376749484,
+          "pr_auc_trapezoid": 0.2542510916194719,
+          "false_alarms_per_1000_observations": 39.88995873452545,
+          "positives": 363,
+          "negatives": 1091,
+          "confusion_matrix": {
+            "tp": 21,
+            "fp": 58,
+            "tn": 1033,
+            "fn": 342
+          },
+          "pr_auc_status": "defined",
+          "undefined_metrics": [],
+          "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+        },
+        "isolation_forest": {
+          "labeled": true,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 1454,
+          "alerts": 251,
+          "alert_rate": 0.17262723521320494,
+          "score_quantiles": [
+            0.43019084639788985,
+            0.5508988371993591,
+            0.7473877388600105,
+            0.7473877388600105
+          ],
+          "precision": 0.29880478087649404,
+          "recall": 0.2066115702479339,
+          "f1": 0.24429967426710097,
+          "pr_auc_average_precision": 0.30781423443911354,
+          "pr_auc_trapezoid": 0.34481166475730124,
+          "false_alarms_per_1000_observations": 121.04539202200826,
+          "positives": 363,
+          "negatives": 1091,
+          "confusion_matrix": {
+            "tp": 75,
+            "fp": 176,
+            "tn": 915,
+            "fn": 288
+          },
+          "pr_auc_status": "defined",
+          "undefined_metrics": [],
+          "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+        }
+      },
+      "unlabeled_metrics": {
+        "mad": {
+          "labeled": false,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 1454,
+          "alerts": 251,
+          "alert_rate": 0.17262723521320494,
+          "score_quantiles": [
+            0.006751567344049777,
+            2.18564775651305,
+            3.9586710983429896,
+            5.014361656529924
+          ]
+        },
+        "rolling_mad": {
+          "labeled": false,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 1454,
+          "alerts": 79,
+          "alert_rate": 0.054332874828060526,
+          "score_quantiles": [
+            7.305858963516974e-05,
+            0.8099777884213133,
+            3.851051269646602,
+            13.47945048430188
+          ]
+        },
+        "isolation_forest": {
+          "labeled": false,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 1454,
+          "alerts": 251,
+          "alert_rate": 0.17262723521320494,
+          "score_quantiles": [
+            0.43019084639788985,
+            0.5508988371993591,
+            0.7473877388600105,
+            0.7473877388600105
+          ]
+        }
+      },
+      "events": {
+        "mad": {
+          "definition": "contiguous positive labels within asset; no point adjustment",
+          "events": [
+            {
+              "asset_id": "ambient_temperature_system_failure",
+              "start": "2014-03-29 15:00:00+00:00",
+              "end": "2014-04-20 22:00:00+00:00",
+              "observations": 363,
+              "alerted_observations": 75,
+              "hit": true,
+              "first_alert_delay_observations": 38,
+              "point_coverage": 0.2066115702479339
+            }
+          ],
+          "event_count": 1,
+          "events_hit": 1,
+          "early_positive_rows": 31,
+          "late_positive_rows": 332,
+          "early_point_recall": 0.0,
+          "late_point_recall": 0.22590361445783133
+        },
+        "rolling_mad": {
+          "definition": "contiguous positive labels within asset; no point adjustment",
+          "events": [
+            {
+              "asset_id": "ambient_temperature_system_failure",
+              "start": "2014-03-29 15:00:00+00:00",
+              "end": "2014-04-20 22:00:00+00:00",
+              "observations": 363,
+              "alerted_observations": 21,
+              "hit": true,
+              "first_alert_delay_observations": 47,
+              "point_coverage": 0.05785123966942149
+            }
+          ],
+          "event_count": 1,
+          "events_hit": 1,
+          "early_positive_rows": 31,
+          "late_positive_rows": 332,
+          "early_point_recall": 0.0,
+          "late_point_recall": 0.06325301204819277
+        },
+        "isolation_forest": {
+          "definition": "contiguous positive labels within asset; no point adjustment",
+          "events": [
+            {
+              "asset_id": "ambient_temperature_system_failure",
+              "start": "2014-03-29 15:00:00+00:00",
+              "end": "2014-04-20 22:00:00+00:00",
+              "observations": 363,
+              "alerted_observations": 75,
+              "hit": true,
+              "first_alert_delay_observations": 38,
+              "point_coverage": 0.2066115702479339
+            }
+          ],
+          "event_count": 1,
+          "events_hit": 1,
+          "early_positive_rows": 31,
+          "late_positive_rows": 332,
+          "early_point_recall": 0.0,
+          "late_point_recall": 0.22590361445783133
+        }
+      },
+      "quality_summary": {
+        "scope": "raw-data quality flags, not operational anomaly performance or diagnosis",
+        "observations": 1454,
+        "missing_rows": 0,
+        "review_alerts": 0,
+        "review_alert_rate": 0.0,
+        "repeat_alerts": 0,
+        "persistent_missing_alerts": 0,
+        "gap_resets": 2,
+        "by_sensor": {
+          "sensor_value": {
+            "missing_values": 0,
+            "repeat_alerts": 0,
+            "repeat_assessable_rows": 1454
+          }
+        }
+      },
+      "quality_rules": {
+        "stuck_run_length": 8,
+        "missing_run_length": 3,
+        "repeat_tolerance": 1e-08,
+        "gap_multiplier": 1.5
+      },
+      "scored_csv_sha256": "bc10a6b7ff2343b1caa58b9c632d5885182e12b03c28346222cdc4e4fc53c660"
+    },
+    {
+      "series": "realKnownCause/cpu_utilization_asg_misconfiguration.csv",
+      "status": "evaluated",
+      "provenance": {
+        "validation": {
+          "rows": 18050,
+          "sensors": [
+            "sensor_value"
+          ],
+          "missing": {
+            "sensor_value": 0
+          },
+          "irregular_intervals": {
+            "cpu_utilization_asg_misconfiguration": 0
+          },
+          "timezone": "UTC"
+        },
+        "source_rows": 18050,
+        "source_windows": [
+          [
+            "2014-07-10 12:29:00.000000",
+            "2014-07-15 17:19:00.000000"
+          ]
+        ],
+        "source_timezone": "unspecified naive clock",
+        "timezone_assumption": "UTC ordering coordinate only; publisher physical timezone not verified",
+        "label_semantics": "inclusive published anomaly-window membership, not pointwise fault truth"
+      },
+      "splits": {
+        "train": {
+          "rows": 10830,
+          "membership_sha256": "5b9024951abbb57c1da624bb205ea89654272a2a06934192e49a24cda8da5ae8",
+          "start": "2014-05-14 01:14:00+00:00",
+          "end": "2014-06-20 15:39:00+00:00",
+          "assets": [
+            {
+              "asset_id": "cpu_utilization_asg_misconfiguration",
+              "start": "2014-05-14 01:14:00+00:00",
+              "end": "2014-06-20 15:39:00+00:00",
+              "rows": 10830
+            }
+          ]
+        },
+        "calibration": {
+          "rows": 3610,
+          "membership_sha256": "53a8d82525f22dd10066df55d0f563af8ffd5102eed55307fe83df110bca9da7",
+          "start": "2014-06-20 15:44:00+00:00",
+          "end": "2014-07-03 04:29:00+00:00",
+          "assets": [
+            {
+              "asset_id": "cpu_utilization_asg_misconfiguration",
+              "start": "2014-06-20 15:44:00+00:00",
+              "end": "2014-07-03 04:29:00+00:00",
+              "rows": 3610
+            }
+          ]
+        },
+        "test": {
+          "rows": 3610,
+          "membership_sha256": "b4c9206c85622798593d85ccdbba24527116e5c4d6a431acbb4cb6cd512a45b8",
+          "start": "2014-07-03 04:34:00+00:00",
+          "end": "2014-07-15 17:19:00+00:00",
+          "assets": [
+            {
+              "asset_id": "cpu_utilization_asg_misconfiguration",
+              "start": "2014-07-03 04:34:00+00:00",
+              "end": "2014-07-15 17:19:00+00:00",
+              "rows": 3610
+            }
+          ]
+        }
+      },
+      "window_membership_counts": {
+        "train": {
+          "rows": 10830,
+          "positive_rows": 0
+        },
+        "calibration": {
+          "rows": 3610,
+          "positive_rows": 0
+        },
+        "test": {
+          "rows": 3610,
+          "positive_rows": 1499
+        }
+      },
+      "thresholds": {
+        "mad": 33.669822646733536,
+        "rolling_mad": 42.92021304020181,
+        "isolation_forest": 0.7441471420700655
+      },
+      "test_windows": [
+        {
+          "published_start": "2014-07-10 12:29:00+00:00",
+          "published_end": "2014-07-15 17:19:00+00:00",
+          "clipped_at_test_boundary": false
+        }
+      ],
+      "metrics": {
+        "mad": {
+          "labeled": true,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 3610,
+          "alerts": 0,
+          "alert_rate": 0.0,
+          "score_quantiles": [
+            0.0004974120645131379,
+            1.407427436533205,
+            30.224105026368758,
+            33.669822646733536
+          ],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "pr_auc_average_precision": 0.5802156726853092,
+          "pr_auc_trapezoid": 0.5888851567030531,
+          "false_alarms_per_1000_observations": 0.0,
+          "positives": 1499,
+          "negatives": 2111,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 2111,
+            "fn": 1499
+          },
+          "pr_auc_status": "defined",
+          "undefined_metrics": [
+            "precision"
+          ],
+          "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+        },
+        "rolling_mad": {
+          "labeled": true,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 3610,
+          "alerts": 59,
+          "alert_rate": 0.016343490304709142,
+          "score_quantiles": [
+            0.0,
+            0.7027230430746272,
+            27.020104520008356,
+            85.08201536359235
+          ],
+          "precision": 0.1864406779661017,
+          "recall": 0.00733822548365577,
+          "f1": 0.014120667522464698,
+          "pr_auc_average_precision": 0.3826092862366198,
+          "pr_auc_trapezoid": 0.38216529321398396,
+          "false_alarms_per_1000_observations": 13.296398891966758,
+          "positives": 1499,
+          "negatives": 2111,
+          "confusion_matrix": {
+            "tp": 11,
+            "fp": 48,
+            "tn": 2063,
+            "fn": 1488
+          },
+          "pr_auc_status": "defined",
+          "undefined_metrics": [],
+          "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+        },
+        "isolation_forest": {
+          "labeled": true,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 3610,
+          "alerts": 1,
+          "alert_rate": 0.0002770083102493075,
+          "score_quantiles": [
+            0.38138794167427265,
+            0.4968572941176621,
+            0.7256405507908907,
+            0.7444888189336495
+          ],
+          "precision": 1.0,
+          "recall": 0.00066711140760507,
+          "f1": 0.0013333333333333333,
+          "pr_auc_average_precision": 0.612777569359585,
+          "pr_auc_trapezoid": 0.6150448026055546,
+          "false_alarms_per_1000_observations": 0.0,
+          "positives": 1499,
+          "negatives": 2111,
+          "confusion_matrix": {
+            "tp": 1,
+            "fp": 0,
+            "tn": 2111,
+            "fn": 1498
+          },
+          "pr_auc_status": "defined",
+          "undefined_metrics": [],
+          "zero_division_policy": "undefined precision/recall/F1 represented as 0; see undefined_metrics"
+        }
+      },
+      "unlabeled_metrics": {
+        "mad": {
+          "labeled": false,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 3610,
+          "alerts": 0,
+          "alert_rate": 0.0,
+          "score_quantiles": [
+            0.0004974120645131379,
+            1.407427436533205,
+            30.224105026368758,
+            33.669822646733536
+          ]
+        },
+        "rolling_mad": {
+          "labeled": false,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 3610,
+          "alerts": 59,
+          "alert_rate": 0.016343490304709142,
+          "score_quantiles": [
+            0.0,
+            0.7027230430746272,
+            27.020104520008356,
+            85.08201536359235
+          ]
+        },
+        "isolation_forest": {
+          "labeled": false,
+          "threshold_sources": [
+            "unlabeled calibration quantile; fixed before this batch"
+          ],
+          "observations": 3610,
+          "alerts": 1,
+          "alert_rate": 0.0002770083102493075,
+          "score_quantiles": [
+            0.38138794167427265,
+            0.4968572941176621,
+            0.7256405507908907,
+            0.7444888189336495
+          ]
+        }
+      },
+      "events": {
+        "mad": {
+          "definition": "contiguous positive labels within asset; no point adjustment",
+          "events": [
+            {
+              "asset_id": "cpu_utilization_asg_misconfiguration",
+              "start": "2014-07-10 12:29:00+00:00",
+              "end": "2014-07-15 17:19:00+00:00",
+              "observations": 1499,
+              "alerted_observations": 0,
+              "hit": false,
+              "first_alert_delay_observations": null,
+              "point_coverage": 0.0
+            }
+          ],
+          "event_count": 1,
+          "events_hit": 0,
+          "early_positive_rows": 31,
+          "late_positive_rows": 1468,
+          "early_point_recall": 0.0,
+          "late_point_recall": 0.0
+        },
+        "rolling_mad": {
+          "definition": "contiguous positive labels within asset; no point adjustment",
+          "events": [
+            {
+              "asset_id": "cpu_utilization_asg_misconfiguration",
+              "start": "2014-07-10 12:29:00+00:00",
+              "end": "2014-07-15 17:19:00+00:00",
+              "observations": 1499,
+              "alerted_observations": 11,
+              "hit": true,
+              "first_alert_delay_observations": 8,
+              "point_coverage": 0.00733822548365577
+            }
+          ],
+          "event_count": 1,
+          "events_hit": 1,
+          "early_positive_rows": 31,
+          "late_positive_rows": 1468,
+          "early_point_recall": 0.03225806451612903,
+          "late_point_recall": 0.006811989100817439
+        },
+        "isolation_forest": {
+          "definition": "contiguous positive labels within asset; no point adjustment",
+          "events": [
+            {
+              "asset_id": "cpu_utilization_asg_misconfiguration",
+              "start": "2014-07-10 12:29:00+00:00",
+              "end": "2014-07-15 17:19:00+00:00",
+              "observations": 1499,
+              "alerted_observations": 1,
+              "hit": true,
+              "first_alert_delay_observations": 1220,
+              "point_coverage": 0.00066711140760507
+            }
+          ],
+          "event_count": 1,
+          "events_hit": 1,
+          "early_positive_rows": 31,
+          "late_positive_rows": 1468,
+          "early_point_recall": 0.0,
+          "late_point_recall": 0.0006811989100817438
+        }
+      },
+      "quality_summary": {
+        "scope": "raw-data quality flags, not operational anomaly performance or diagnosis",
+        "observations": 3610,
+        "missing_rows": 0,
+        "review_alerts": 0,
+        "review_alert_rate": 0.0,
+        "repeat_alerts": 0,
+        "persistent_missing_alerts": 0,
+        "gap_resets": 0,
+        "by_sensor": {
+          "sensor_value": {
+            "missing_values": 0,
+            "repeat_alerts": 0,
+            "repeat_assessable_rows": 3610
+          }
+        }
+      },
+      "quality_rules": {
+        "stuck_run_length": 8,
+        "missing_run_length": 3,
+        "repeat_tolerance": 1e-08,
+        "gap_multiplier": 1.5
+      },
+      "scored_csv_sha256": "5db5d0c7c29f015e4e98875068bff964a22dfabb7a893c6e827102504f4b66f4"
+    }
+  ],
+  "descriptive_summary": {
+    "series_count": 3,
+    "evaluated_series": 2,
+    "source_rejections": 1,
+    "two_class_test_series": 2,
+    "warning": "No pooled metric or ranking; inspect per-series support and label-window semantics"
+  },
+  "limitations": [
+    "Publisher-released real data; full independent provenance and source clock timezone not verified",
+    "MIT is publisher repository declaration, not an invented per-file data license; raw files not redistributed",
+    "Broad window membership is not per-point fault truth; no official NAB score or leaderboard comparison",
+    "Known public convenience subset; source research exposed some label metadata; not a blind trial",
+    "60/20/20 split may contain anomalies in training/calibration or no final-test positives; no filtering or exclusion",
+    "One predeclared model seed, three series; no confidence intervals, parameter search or generalization claim",
+    "No independent quality-rule target exists; quality outputs descriptive only",
+    "Once inspected these test periods cannot be reused as untouched final validation for tuned models"
+  ]
+}

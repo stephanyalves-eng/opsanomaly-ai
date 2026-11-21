@@ -1,0 +1,25 @@
+{
+  "protocol_version": "nab-local-v1",
+  "repository": "https://github.com/numenta/NAB",
+  "revision": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+  "series": [
+    "realKnownCause/machine_temperature_system_failure.csv",
+    "realKnownCause/ambient_temperature_system_failure.csv",
+    "realKnownCause/cpu_utilization_asg_misconfiguration.csv"
+  ],
+  "labels_path": "labels/combined_windows.json",
+  "license_path": "LICENSE.txt",
+  "metadata_paths": [
+    "data/README.md",
+    ".zenodo.json"
+  ],
+  "split": "shared-utc-60-20-20-v2 applied independently per series; no pooling",
+  "seed": 42,
+  "calibration_alert_rate": 0.02,
+  "rolling_window": 31,
+  "label_mapping": "inclusive supplied anomaly-window membership; no point adjustment; NOT official NAB scoring",
+  "timezone_policy": "source naive clock localized to UTC as ordering coordinate only; source timezone unverified",
+  "selection_policy": "three realKnownCause operational/temperature files fixed before loading CSV values; no result-based exclusion or tuning",
+  "license_basis": "publisher repository LICENSE.txt MIT, corroborated by .zenodo.json; preserve original notice; no separate data-specific warranty",
+  "redistribution": "downloaded raw data/labels ignored by Git; local evaluation only; no publication"
+}

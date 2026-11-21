@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools==84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opsanomaly-ai"
+version = "0.2.0"
+description = "Local operational anomaly detection with honest synthetic evaluation"
+requires-python = ">=3.11,<3.13"
+dependencies = ["numpy==2.2.3", "pandas==2.2.3", "scikit-learn==1.6.1", "joblib==1.4.2", "PyYAML==6.0.2", "matplotlib==3.10.0"]
+
+[project.optional-dependencies]
+dev = ["pytest==9.0.3", "ruff==0.9.7", "mypy==1.15.0", "pandas-stubs==2.2.3.250308", "types-PyYAML==6.0.12.20241230", "pre-commit==4.1.0", "pip-tools==7.4.1", "pip-audit==2.8.0"]
+app = ["gradio==6.32.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

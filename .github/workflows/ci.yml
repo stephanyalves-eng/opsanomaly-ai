@@ -1,0 +1,54 @@
+name: quality
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    # Standard public runners only. A later visibility change cannot start paid private CI.
+    if: ${{ github.event.repository.private == false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12']
+    env:
+      GRADIO_ANALYTICS_ENABLED: 'False'
+      HF_HUB_OFFLINE: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      MPLCONFIGDIR: ${{ runner.temp }}/opsanomaly-matplotlib
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install exact dependencies and package
+        run: |
+          python -m pip install -r requirements.lock
+          python -m pip install --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Lint and format
+        run: |
+          ruff check .
+          ruff format --check .
+      - name: Type check
+        run: mypy src scripts app
+      - name: Unit and offline integration tests
+        run: pytest -q
+      - name: Reproduce synthetic evaluation
+        run: |
+          python scripts/generate_synthetic.py
+          python scripts/train.py
+          python scripts/evaluate.py
+      - name: Audit locked dependencies
+        run: pip-audit -r requirements.lock --disable-pip --no-deps

@@ -1,0 +1,40 @@
+{
+  "protocol_version": "quality-validation-v1",
+  "seeds": [
+    1051,
+    2083,
+    4099
+  ],
+  "rows_per_asset": 1000,
+  "assets": 3,
+  "scenarios": [
+    "clean",
+    "benign_drift",
+    "gradual_drift",
+    "sustained_shift",
+    "stuck_sensor",
+    "missing_random",
+    "missing_block",
+    "spikes_with_missing",
+    "legitimate_plateau",
+    "quantized_clean",
+    "constant_sensor"
+  ],
+  "calibration_alert_rate": 0.02,
+  "rolling_window": 31,
+  "event_start_fraction": 0.82,
+  "event_end_fraction": 0.94,
+  "random_missing_probability": 0.1,
+  "quality_rules": {
+    "stuck_run_length": 8,
+    "missing_run_length": 3,
+    "repeat_tolerance": 1e-08,
+    "gap_multiplier": 1.5
+  },
+  "selection_policy": "Fixed before running new seeds; no search or post-result changes",
+  "old_seeds_excluded": [
+    42,
+    43,
+    44
+  ]
+}

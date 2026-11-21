@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "seed": 42,
+  "rows_per_asset": 1000,
+  "assets": 3,
+  "sha256": "8b0791f034a9d30421d3737a5f21d0687fb347a303ab8b7ad72c2b5f2082f6a6",
+  "provenance": "original synthetic injection; not real failures",
+  "license": "MIT"
+}
