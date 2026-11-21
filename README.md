@@ -4,6 +4,10 @@
 
 Local-first operational anomaly scoring: frozen MAD, strictly past-only rolling median/MAD, and Isolation Forest. Synthetic evaluation tests engineering behavior; it does not establish failure detection or diagnosis.
 
+[![OpsAnomaly AI — anomaly review, evidence first](docs/portfolio/assets/video-thumbnail.jpg)](https://opsanomaly-ai-demo.stephany-alves.workers.dev/)
+
+**[Explore the interactive demo](https://opsanomaly-ai-demo.stephany-alves.workers.dev/)** — No sign-in required. Filter assets, compare detection methods, inspect descriptive evidence and download scored CSV/evaluation JSON. The Cloudflare-hosted demo uses precomputed synthetic results; it does not run Python or analyze uploaded CSVs. Both English-captioned app videos are available in the demo. Synthetic labels are injection markers, not verified equipment faults.
+
 ## Reproduce (PowerShell, Python 3.11 or 3.12)
 
 ```powershell
@@ -83,4 +87,29 @@ No dependency changes or automatic network calls during evaluation/tests. Full s
 
 ## Public repository and hosted CI
 
-Source is published at https://github.com/stephanyalves-eng/opsanomaly-ai . Standard Linux CI passed all 131 tests on Python 3.11 and 3.12, plus Ruff, strict Mypy, synthetic reproduction and dependency audit. [Verified run and publication evidence](docs/publication.md). No hosted app, public model weights or raw dataset redistribution. Earlier platform-status snapshots in historical reports are superseded by this hosted evidence.
+Source is published at https://github.com/stephanyalves-eng/opsanomaly-ai . Standard Linux CI passed all 131 tests on Python 3.11 and 3.12, plus Ruff, strict Mypy, synthetic reproduction and dependency audit. [Verified run and publication evidence](docs/publication.md). The public Cloudflare demo explores precomputed synthetic outputs; Python inference remains local. No public model weights or raw external dataset redistribution. Earlier platform-status snapshots in historical reports are superseded by this hosted evidence.
+
+## App in action
+
+Real local UI recordings with original synthetic data. These GIFs demonstrate interactions; they do not establish real-world fault-diagnosis accuracy. [Open the demo and captioned videos](https://opsanomaly-ai-demo.stephany-alves.workers.dev/).
+
+**Filter an asset and compare methods**
+
+![Asset and method filters](docs/portfolio/assets/01-asset-and-method-filters.gif)
+
+**Inspect the score, calibration threshold and descriptive evidence**
+
+![Score and evidence review](docs/portfolio/assets/02-score-and-evidence.gif)
+
+<details>
+<summary>Data quality and labeled/unlabeled evaluation</summary>
+
+Raw quality flags remain separate from model decisions.
+
+![Independent data-quality review](docs/portfolio/assets/03-data-quality-review.gif)
+
+Precision, recall and F1 require labels; unlabeled views show score and alert summaries.
+
+![Labeled versus unlabeled evaluation](docs/portfolio/assets/04-labeled-vs-unlabeled.gif)
+
+</details>
