@@ -1,5 +1,7 @@
 # OpsAnomaly AI
 
+[![CI](https://github.com/stephanyalves-eng/opsanomaly-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/stephanyalves-eng/opsanomaly-ai/actions/workflows/ci.yml)
+
 Local-first operational anomaly scoring: frozen MAD, strictly past-only rolling median/MAD, and Isolation Forest. Synthetic evaluation tests engineering behavior; it does not establish failure detection or diagnosis.
 
 ## Reproduce (PowerShell, Python 3.11 or 3.12)
@@ -46,7 +48,7 @@ The [static showcase](app/static_showcase/index.html) displays real precomputed 
 
 [Foundation UI screenshot](docs/screenshots/local-demo.png) predates the rolling audit and is historical; the current app is exercised by integration tests. No new browser screenshot is claimed for v0.2.
 
-Dependency versions remain locked (102 packages, including app/dev/build transitive dependencies). Installing `-e .[dev,app]` alone does not lock transitive versions. The previous point-in-time dependency audit remains in docs/dependency-audit.json; code-only audit did not change dependencies. Original generated data/code uses MIT; no external dataset license is asserted. Publication status and hosted CI evidence are tracked in [publication.md](docs/publication.md). No production deployment, purchase or public model/dataset weights are included. Local checks are evidence for an experimental MVP, not certification of production infrastructure.
+Dependency versions remain locked (102 packages, including app/dev/build transitive dependencies). Installing `-e .[dev,app]` alone does not lock transitive versions. The [prepublication dependency audit](docs/publication-dependency-audit.json) reported zero known advisories; CI audits the same lock. Historical reports remain available. Original generated data/code uses MIT; no external dataset license is asserted. Publication status and hosted CI evidence are tracked in [publication.md](docs/publication.md). No production deployment, purchase or public model/dataset weights are included. Local checks are evidence for an experimental MVP, not certification of production infrastructure.
 
 ## Expanded synthetic stress suite
 
@@ -78,3 +80,7 @@ python scripts/plot_nab.py
 ```
 
 No dependency changes or automatic network calls during evaluation/tests. Full suite at this stage: 131 passed. Source timezone is unspecified; UTC is used solely as an ordering coordinate. The inspected final periods cannot be reused as untouched validation after tuning.
+
+## Public repository and hosted CI
+
+Source is published at https://github.com/stephanyalves-eng/opsanomaly-ai . Standard Linux CI passed all 131 tests on Python 3.11 and 3.12, plus Ruff, strict Mypy, synthetic reproduction and dependency audit. [Verified run and publication evidence](docs/publication.md). No hosted app, public model weights or raw dataset redistribution. Earlier platform-status snapshots in historical reports are superseded by this hosted evidence.

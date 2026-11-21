@@ -37,3 +37,7 @@ QualityMonitor is now a separate raw-value review channel, not a repair to numer
 ## External NAB subset (2026-11-21)
 
 The project now includes an initial real-data experiment, superseding the earlier synthetic-only scope for current development evidence. Two publisher-released series are evaluated with poor fixed-threshold results; one preselected machine series is rejected for 12 conflicting timestamps. This is a small convenience subset, not an industrial validation or official NAB benchmark score. Publisher interval labels are mapped to point membership without point adjustment; physical source clock/units and detailed provenance remain unverified. Root MIT declaration and metadata were checked/preserved; no separate dataset license or rights-chain warranty was invented. Raw files remain ignored and local. Source-quality failures, training contamination, boundary clipping and already-inspected holdouts are explicit. See nab_dataset_card.md and nab-evaluation.md for all evidence and remaining work.
+
+## Public-source and hosted CI update (2026-11-21)
+
+Source is now public and Linux/Python 3.11/3.12 hosted CI has passed all 131 tests, lint/format, typing, reproduction and dependency audit; see publication.md. This supersedes earlier historical statements that hosted CI had not run. It does not resolve weak real-data metrics, source duplication, annotation uncertainty, diagnosis/generalization limits or serving/security limitations. No hosted inference or raw dataset/model binary publication was performed.

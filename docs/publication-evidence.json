@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "date_local": "2026-11-21",
+  "timezone": "America/Sao_Paulo",
+  "repository": "https://github.com/stephanyalves-eng/opsanomaly-ai",
+  "visibility": "public",
+  "owner": "stephanyalves-eng",
+  "initial_commit": "d20bdf85bf422ced8d24ba982c623641730bdf46",
+  "validated_code_commit": "22bd11f25fc6de3864211329535c85989bdc7d37",
+  "validated_run": {
+    "id": 44943208717,
+    "url": "https://github.com/stephanyalves-eng/opsanomaly-ai/actions/runs/44943208717",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "python": "3.11",
+        "runner": "ubuntu-latest",
+        "tests_passed": 131,
+        "warnings": 14,
+        "test_seconds": 26.9,
+        "conclusion": "success"
+      },
+      {
+        "python": "3.12",
+        "runner": "ubuntu-latest",
+        "tests_passed": 131,
+        "warnings": 14,
+        "test_seconds": 33.54,
+        "conclusion": "success"
+      }
+    ],
+    "checks": [
+      "exact dependency install and pip check",
+      "Ruff lint and format",
+      "strict Mypy (27 files)",
+      "unit/offline integration tests",
+      "synthetic generation/training/evaluation",
+      "dependency vulnerability audit"
+    ]
+  },
+  "known_advisories_at_validation": 0,
+  "locked_packages": 102,
+  "publication_review": {
+    "initial_staged_files": 96,
+    "initial_staged_bytes": 3082282,
+    "secret_patterns_found": 0,
+    "raw_external_data_committed": false,
+    "model_binaries_committed": false,
+    "environments_committed": false,
+    "junit_hostnames_removed": true,
+    "reviewed_bytes_preserved": true
+  },
+  "initial_failed_run": {
+    "id": 44942634771,
+    "cause": "runner.temp used in job-level env, moved to step-level env",
+    "jobs_started": 0
+  },
+  "billing_controls": {
+    "standard_public_linux_runners_only": true,
+    "private_repository_jobs_disabled": true,
+    "cache_upload": false,
+    "artifact_upload": false,
+    "larger_runner": false,
+    "scheduled_runs": false
+  },
+  "scope": "source repository publication and hosted CI only; no app/Space deployment, release tag, public model weights, dataset publication or purchase"
+}

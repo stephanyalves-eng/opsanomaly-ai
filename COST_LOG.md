@@ -24,3 +24,7 @@ Local CPU only: 33 new-seed comparisons, raw quality CSV/JSON exports, 25 focuse
 ## First external dataset cycle (2026-11-21)
 
 Read-only Git revision lookup and seven pinned official NAB HTTPS files (1,525,913 bytes, approximately 1.53 MB). Local CPU fitting/scoring only; evaluation and tests offline. No package/dependency change, paid API, cloud/GPU compute, hosted job, purchase, publication, remote repository or outbound message. Raw data remains local and ignored by Git.
+
+## Public GitHub source and CI (2026-11-21)
+
+User explicitly selected public stephanyalves-eng/opsanomaly-ai. Standard public GitHub-hosted Ubuntu jobs on Python 3.11/3.12; provider documentation identifies those runners as free. No larger runner, cache/artifact upload, hosted app, GPU, purchase or model/dataset service. Private-repository CI is gated off. Initial invalid YAML started zero jobs; corrected run 44943208717 passed both jobs. No invoice/account-wide spending claim is made; no paid resource was requested. Full evidence: docs/publication.md.

@@ -69,3 +69,13 @@ Publication gates remain deliberately separate: no hosted CI result, external be
 - [x] 18 new offline tests; complete 131-test suite passed
 - [ ] Machine-temperature series requires justified source/duplicate handling before evaluation
 - [ ] Broader untouched external validation and deployment evidence remain future work
+
+## Step 4: public source and hosted CI
+
+- [x] Public visibility explicitly selected; correct account and new-repository name verified
+- [x] Reviewed source-only commit; secrets/raw data/models/environments excluded
+- [x] Original license/attribution and honest measured limitations retained
+- [x] Public repository created and source pushed
+- [x] Workflow context error corrected; SHA-pinned actions and cost controls retained
+- [x] Hosted Linux/Python 3.11 and 3.12: 131 tests each plus lint, typing, reproduction and audit passed
+- [x] Public URL, successful run, first failure/correction and resource controls documented
